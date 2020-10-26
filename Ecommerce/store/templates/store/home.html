@@ -1,0 +1,130 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+        <section id="hero">
+            
+                  <!-- Slide 1 -->
+                  <div class="carousel-item active" style="background-image: url('{% static 'images/iphone.jpg' %}');">
+                    <div class="carousel-container">
+                      <div class="carousel-content container">
+                        <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Princenoch</span></h2>
+                        <p class="animate__animated animate__fadeInUp">Get Everything for you smartphone. Charger, cases, skins, headphones and more!!.</p> 
+                        <a href="{% url 'store' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Start Shopping</a>
+                      </div>
+                    </div>
+                  </div>
+        
+                  
+            </div>
+          </section>
+        </div>
+        <!--/.Slides-->
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+    </div>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <a href="#" class="list-group-item active">Electronics
+                    </a>
+                    <ul class="list-group">
+
+                        <li class="list-group-item">Mobile
+      <span class="label label-primary pull-right">234</span>
+                        </li>
+                        <li class="list-group-item">Computers
+                      <span class="label label-success pull-right">34</span>
+                        </li>
+                        <li class="list-group-item">Tablets
+                         <span class="label label-danger pull-right">4</span>
+                        </li>
+                        <li class="list-group-item">Appliances
+                             <span class="label label-info pull-right">434</span>
+                        </li>
+                        <li class="list-group-item">Games & Entertainment
+                             <span class="label label-success pull-right">34</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.div -->
+                <div>
+                    <a href="#" class="list-group-item active list-group-item-success">Clothing & Wears
+                    </a>
+                    <ul class="list-group">
+
+                        <li class="list-group-item">Men's Clothing
+                             <span class="label label-danger pull-right">300</span>
+                        </li>
+                        <li class="list-group-item">Women's Clothing
+                             <span class="label label-success pull-right">340</span>
+                        </li>
+                        <li class="list-group-item">Kid's Wear
+                             <span class="label label-info pull-right">735</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- /.div -->
+                <div>
+                    <a href="#" class="list-group-item active">Accessaries & Extras
+                    </a>
+                    <ul class="list-group">
+                        <li class="list-group-item">Mobile Accessaries
+                             <span class="label label-warning pull-right">456</span>
+                        </li>
+                        <li class="list-group-item">Men's Accessaries
+                             <span class="label label-success pull-right">156</span>
+                        </li>
+                        <li class="list-group-item">Women's Accessaries
+                             <span class="label label-info pull-right">400</span>
+                        </li>
+                        <li class="list-group-item">Kid's Accessaries
+                             <span class="label label-primary pull-right">89</span>
+                        </li>
+                        <li class="list-group-item">Home Products
+                             <span class="label label-danger pull-right">90</span>
+                        </li>
+                        <li class="list-group-item">Kitchen Products
+                             <span class="label label-warning pull-right">567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col-lg-4">
+                        <img class="thumbnail" src="{{product.imageURL}}">
+                        <div class="box-element product">
+                            <h6><strong>{{product.name}}</strong></h6>
+                            <hr>
+            
+                            <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                            
+                            <a class="btn btn-outline-success" href="#">View</a>
+                            <h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
+            
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- /.row -->
+        </div>
+        <!-- /.row -->
+    </div>
+    </nav>
+    
+    <!-- /.container -->
+    
+{% endblock content %}

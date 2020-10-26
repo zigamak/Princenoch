@@ -1,0 +1,47 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="limiter">
+    <div class="container-login100">
+        
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" method="POST">
+            
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+                
+            </div>
+
+            <div>
+                <a href="{% url 'change_password' %}" class="txt1">
+                    Forgot Password?
+                </a>
+            </div>
+            <div class="text-center p-t-46 p-b-20">
+                <span class="txt2">
+                    Need an Account?	<a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+                </span>
+            </div>
+
+            
+        </form>
+        <img  id="login-img" src="{% static 'images/bg-01.jpg' %}" alt="">
+        
+					
+        </div>
+        
+        </div>   
+        </div>
+        
+    </div>
+{% endblock content %}
